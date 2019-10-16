@@ -2,17 +2,35 @@
 // botão programe toogle para cada card, com tempos
 // diferentes para cada um.
 
-$(function(){
-    // $(".toggle").click(function(){
-    //     $(".card1").fadeToggle(1000)
-    //     $(".card2").fadeToggle(6000)
-    //     $(".card3").fadeToggle(3000) // $(".card: eq(3)).fadeToggle(3000)" para selecionar por indice sem classe
-    // })
-
-    $(".button").click(function(){
-        let content =$(".container").html()
-        $(".container").append(content)
-        
+$(function () {
+    $(".toggle").click(function () {
+        $(".card1").fadeToggle(1000)
+        $(".card2").fadeToggle(6000)
+        $(".card3").fadeToggle(3000) // $(".card: eq(3)).fadeToggle(3000)" para selecionar por indice sem classe
     })
 
-})
+    
+    $(".button").click(function () {
+        let content = $(".container").html()
+        $(".container").append(content)
+
+        configurateHover();
+
+    })
+
+    function configurateHover() {
+        $('.card-title').off("mouseenter").on("mouseenter",
+            function () {
+                $(this).css('color', 'yellow');
+            }
+        );
+
+        $('.card-title').off("mouseleave").on("mouseleave",
+            function () {
+                $(this).css('color', 'black');
+            }
+        )
+    }
+
+    configurateHover();
+});
